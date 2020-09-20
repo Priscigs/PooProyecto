@@ -5,10 +5,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Descripcion extends JFrame {
+public class JuegosMenu extends JFrame {
 
 	private JPanel contentPane;
 
@@ -19,7 +19,7 @@ public class Descripcion extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Descripcion frame = new Descripcion();
+					JuegosMenu frame = new JuegosMenu();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,8 +31,7 @@ public class Descripcion extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Descripcion() {
-		setTitle("Descripci\u00F3n");
+	public JuegosMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -40,16 +39,25 @@ public class Descripcion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Regresar");
-		btnNewButton.setBounds(167, 198, 85, 33);
+		Juegos j = new Juegos();
+		
+		JButton btnNewButton = new JButton("Juegos");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				j.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(167, 97, 85, 32);
 		contentPane.add(btnNewButton);
 		
-		MenuPrincipal mM = new MenuPrincipal();
+		JButton btnCuentos = new JButton("Cuentos");
+		btnCuentos.setBounds(167, 139, 85, 32);
+		contentPane.add(btnCuentos);
 		
-		JLabel lblNewLabel = new JLabel(mM.descripcion());
-		lblNewLabel.setFont(new Font("Sitka Small", Font.PLAIN, 14));
-		lblNewLabel.setBounds(10, 10, 416, 158);
-		contentPane.add(lblNewLabel);
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.setBounds(167, 183, 85, 32);
+		contentPane.add(btnSalir);
 	}
 
 }

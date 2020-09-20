@@ -61,7 +61,15 @@ public class InicioSesion extends JFrame {
 		lblContrasea.setBounds(65, 106, 70, 13);
 		contentPane.add(lblContrasea);
 		
+		JuegosMenu jM = new JuegosMenu();
+		
 		JButton btnInicio = new JButton("Iniciar Sesi\u00F3n");
+		btnInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jM.setVisible(true);
+				dispose();
+			}
+		});
 		btnInicio.setBounds(81, 191, 108, 29);
 		contentPane.add(btnInicio);
 		
