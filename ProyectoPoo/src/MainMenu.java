@@ -4,6 +4,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainMenu extends JFrame {
 
@@ -33,8 +38,37 @@ public class MainMenu extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnCrear = new JButton("Crear Cuenta");
+		btnCrear.setBounds(152, 79, 121, 35);
+		contentPane.add(btnCrear);
+		
+		JButton btnIniciarSesin = new JButton("Iniciar Sesi\u00F3n");
+		btnIniciarSesin.setBounds(152, 124, 121, 35);
+		contentPane.add(btnIniciarSesin);
+		
+		Descripcion d = new Descripcion();
+		
+		JButton btnDescripcin = new JButton("Descripci\u00F3n");
+		btnDescripcin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				d.setVisible(true);
+				dispose();
+			}
+		});
+		btnDescripcin.setBounds(152, 169, 121, 35);
+		contentPane.add(btnDescripcin);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.setBounds(152, 214, 121, 35);
+		contentPane.add(btnSalir);
+		
+		JLabel lblNewLabel = new JLabel("BIENVENIDOS A PEQUEGAMES");
+		lblNewLabel.setFont(new Font("Rockwell", Font.BOLD, 14));
+		lblNewLabel.setBounds(97, 10, 250, 57);
+		contentPane.add(lblNewLabel);
 	}
 
 }
