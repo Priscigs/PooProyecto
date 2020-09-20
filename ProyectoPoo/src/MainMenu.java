@@ -45,7 +45,15 @@ public class MainMenu extends JFrame {
 		btnCrear.setBounds(152, 79, 121, 35);
 		contentPane.add(btnCrear);
 		
+		InicioSesion iS = new InicioSesion();
+		
 		JButton btnIniciarSesin = new JButton("Iniciar Sesi\u00F3n");
+		btnIniciarSesin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				iS.setVisible(true);
+				dispose();
+			}
+		});
 		btnIniciarSesin.setBounds(152, 124, 121, 35);
 		contentPane.add(btnIniciarSesin);
 		
@@ -62,6 +70,11 @@ public class MainMenu extends JFrame {
 		contentPane.add(btnDescripcin);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnSalir.setBounds(152, 214, 121, 35);
 		contentPane.add(btnSalir);
 		
