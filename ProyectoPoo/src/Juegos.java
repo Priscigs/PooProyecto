@@ -41,7 +41,15 @@ public class Juegos extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		Rompecabezas r = new Rompecabezas();
+		
 		JButton btnRompecabezas = new JButton("Rompecabezas");
+		btnRompecabezas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				r.setVisible(true);
+				dispose();
+			}
+		});
 		btnRompecabezas.setBounds(144, 78, 158, 39);
 		contentPane.add(btnRompecabezas);
 		
