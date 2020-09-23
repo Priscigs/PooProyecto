@@ -1,8 +1,3 @@
-package Cuentos;
-
-/**
- * cuentos
- */
 public class Cuentos {
     public Cuentos(){}
     public String menuCuentosString(){
