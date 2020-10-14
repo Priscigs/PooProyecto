@@ -16,8 +16,9 @@ import javax.swing.border.EmptyBorder;
 public class Lab extends JFrame{
 
 	Laberinto lab = new Laberinto();
-
 	Laberinto maze = new Laberinto();
+	CharacterMaze cM = new CharacterMaze();
+	
 
 	/**
 	 * Launch the application.

@@ -9,18 +9,18 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class Laberinto extends JPanel{
-	
+public class Maze extends JPanel {
+
 	CharacterMaze cM = new CharacterMaze();
 	Juego4 j4 = new Juego4();
-
+	
+	public JButton button;
 	public static int level = 1;
 	
 	public static void main(String[] args) {
-		JFrame lab = new JFrame("Laberinto");
+		JFrame lab = new JFrame();
 		Laberinto maze = new Laberinto();
-		
-		lab.add(maze);
+		lab.getContentPane().add(maze);
 		lab.setSize(475, 335);
 		lab.setLocation(300, 200);
 		lab.setVisible(true);
@@ -41,9 +41,14 @@ public class Laberinto extends JPanel{
 				System.exit(0);
 			}
 		}
+
 	}
 	
-	public Laberinto() {
+	public Maze() {
+		
+		JButton btnNewButton = new JButton("hola");
+		btnNewButton.setBounds(592, 561, 100, 50);
+		add(btnNewButton);
 		
 		addKeyListener(new KeyListener(){
 
@@ -67,6 +72,13 @@ public class Laberinto extends JPanel{
 			
 		});
 		setFocusable(true);
+		setLayout(null);
+		
+		
+	}
+	
+	public static int getNivel() {
+		return level;
 	}
 	
 	public static int niveles() {
@@ -76,9 +88,5 @@ public class Laberinto extends JPanel{
 	public void paint(Graphics dibujo) {
 		cM.paint(dibujo);
 		j4.paint(dibujo);
-	}
-	
-	public static int getNivel() {
-		return level;
 	}
 }

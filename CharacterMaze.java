@@ -6,8 +6,6 @@ public class CharacterMaze {
 	
 	private int x = 20;
 	private int y = 20;
-	private int xSegunda = 0;
-	private int ySegunda = 0;
 	private int width = 20;
 	private int height = 20;
 	private int personaje = 20;
@@ -22,6 +20,9 @@ public class CharacterMaze {
 		
 		dibujo.setColor(Color.white);
 		dibujo.fillOval(x+7, y+8, 5, 5);
+		
+		dibujo.setColor(Color.red);
+		dibujo.fillRect(420, 240, width, height);
 	}
 	
 	public void mover(KeyEvent evento) {
@@ -74,7 +75,7 @@ public class CharacterMaze {
 			}
 		}
 		
-		if(xSegunda == 422 && ySegunda == 255) {//475, 335  422, 255
+		if(x == 420 && y == 240) {
 			Laberinto.niveles();
 			x = 20;
 			y = 20;

@@ -18,23 +18,22 @@ public class Juego4 {
 				if(maze1[i][j] == 1) {
 					if(Laberinto.getNivel() == 1) {
 						dibujo.setColor(Color.gray);
-						dibujo.fillRect(j*20, i*20, width, height);
 					}
 					
 					if(Laberinto.getNivel() == 2) {
 						dibujo.setColor(Color.blue);
-						dibujo.fillRect(j*20, i*20, width, height);
 					}
 					
 					if(Laberinto.getNivel() == 3) {
 						dibujo.setColor(Color.green);
-						dibujo.fillRect(j*20, i*20, width, height);
 					}
 					
 					if(Laberinto.getNivel() == 4) {
 						dibujo.setColor(Color.orange);
-						dibujo.fillRect(j*20, i*20, width, height);
 					}
+					
+					dibujo.fillRect(j*20, i*20, width, height);
+					dibujo.setColor(Color.black);
 				}
 			}
 		}

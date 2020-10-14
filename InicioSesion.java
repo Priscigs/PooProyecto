@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -14,6 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import java.awt.Font;
+import java.awt.Image;
 
 public class InicioSesion extends JFrame {
 
@@ -41,6 +44,7 @@ public class InicioSesion extends JFrame {
 	 * Create the frame.
 	 */
 	public InicioSesion() {
+		setTitle("Inicio de Sesión");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,21 +53,20 @@ public class InicioSesion extends JFrame {
 		contentPane.setLayout(null);
 		
 		txtUser = new JTextField();
+		txtUser.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtUser.setBounds(188, 57, 96, 19);
 		contentPane.add(txtUser);
 		txtUser.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Usuario");
-		lblNewLabel.setBounds(65, 60, 45, 13);
+		lblNewLabel.setFont(new Font("Leelawadee", Font.BOLD, 14));
+		lblNewLabel.setBounds(65, 51, 87, 29);
 		contentPane.add(lblNewLabel);
-		
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(65, 106, 70, 13);
-		contentPane.add(lblContrasea);
 		
 		JuegosMenu jM = new JuegosMenu();
 		
 		JButton btnInicio = new JButton("Iniciar Sesi\u00F3n");
+		btnInicio.setFont(new Font("Leelawadee", Font.BOLD, 14));
 		btnInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -78,7 +81,7 @@ public class InicioSesion extends JFrame {
 				//convierto en String la contraseña
 				String contra = new String(txtContra.getPassword());
 				
-				//Verificación de datos
+				//Verificación de todos los campos
 				if(!txtUser.getText().equals("") && !contra.equals("")) {
 					//String newP = Cifrado.sha1(contra);
 					u.setUser(txtUser.getText());
@@ -99,26 +102,39 @@ public class InicioSesion extends JFrame {
 
 				}
 				
-				//Borrar datos
 				txtUser.setText(null);
 				txtContra.setText(null);
 			}
 		});
-		btnInicio.setBounds(81, 191, 108, 29);
+		btnInicio.setBounds(50, 191, 139, 29);
 		contentPane.add(btnInicio);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.setFont(new Font("Leelawadee", Font.BOLD, 14));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		btnSalir.setBounds(245, 191, 108, 29);
+		btnSalir.setBounds(245, 191, 139, 29);
 		contentPane.add(btnSalir);
 		
 		txtContra = new JPasswordField();
+		txtContra.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		txtContra.setBounds(188, 103, 96, 19);
 		contentPane.add(txtContra);
+		
+		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea.setFont(new Font("Leelawadee", Font.BOLD, 14));
+		lblContrasea.setBounds(65, 97, 87, 29);
+		contentPane.add(lblContrasea);
+		
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBounds(0, 0, 436, 273);
+		ImageIcon icon = new ImageIcon(getClass().getResource("FondoMenu.jpg"));
+		ImageIcon img = new ImageIcon(icon.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH));
+		lblFondo.setIcon((img));
+		contentPane.add(lblFondo);
 	}
 
 }
