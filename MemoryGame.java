@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+
 //Javier Aguilar 
 public class MemoryGame {
 	
@@ -53,7 +55,7 @@ public class MemoryGame {
 		fondoP=new JLabel();
 		fondoP.setSize(ventana.getWidth(), ventana.getHeight());
 		fondoP.setLocation(0,0);
-		fondoP.setIcon(new ImageIcon("imagenes/Portada1.jpg"));
+		fondoP.setIcon(new ImageIcon("Portada1.jpg"));
 		fondoP.setVisible(true);
 		panelP.add(fondoP,0);
 		
@@ -62,7 +64,7 @@ public class MemoryGame {
 		botonJugar=new JLabel();
 		botonJugar.setSize(120, 200);
 		botonJugar.setLocation(490,15);
-		botonJugar.setIcon(new ImageIcon("imagenes/jugar.png"));
+		botonJugar.setIcon(new ImageIcon("jugar.png"));
 		botonJugar.setVisible(true);
 		panelP.add(botonJugar,0);
 		
@@ -76,7 +78,7 @@ public class MemoryGame {
 		fondoJ=new JLabel();
 		fondoJ.setSize(ventana.getWidth(), ventana.getHeight());
 		fondoJ.setLocation(0,0);
-		fondoJ.setIcon(new ImageIcon("imagenes/FondoJ.jpg"));
+		fondoJ.setIcon(new ImageIcon("FondoJ.jpg"));
 		fondoJ.setVisible(true);
 		panelJuego.add(fondoJ,0);
 		
@@ -110,7 +112,7 @@ public class MemoryGame {
 			for (int j = 0; j < 5; j++) {
 				matriz[i][j]=new JLabel();
 				matriz[i][j].setBounds(85+(i*100),35+(j*100), 100,100);
-				matriz[i][j].setIcon(new ImageIcon("imagenes/"+matAux[i][j]+".jpg"));
+				matriz[i][j].setIcon(new ImageIcon(matAux[i][j]+".jpg"));
 				matriz[i][j].setVisible(true);
 				panelJuego.add(matriz[i][j],0);
 			}
@@ -158,7 +160,7 @@ public class MemoryGame {
 									
 									if (matAux[j2][j3]==0&& contador!=2) {
 										matAux[j2][j3]=num[j2][j3];
-										matriz[j2][j3].setIcon(new ImageIcon("imagenes/"+matAux[j2][j3]+".jpg"));
+										matriz[j2][j3].setIcon(new ImageIcon(matAux[j2][j3]+".jpg"));
 										contador++;
 										num2=num[j2][j3];
 										newx=j2;
@@ -185,8 +187,8 @@ public class MemoryGame {
 												if (matAux[newx][newy]==matAux[antx][anty]) {
 													matAux[newx][newy]=-1;
 													matAux[antx][anty]=-1;
-													matriz[newx][newy].setIcon(new ImageIcon("imagenes/"+matAux[newx][newy]+".jpg"));
-													matriz[antx][anty].setIcon(new ImageIcon("imagenes/"+matAux[antx][anty]+".jpg"));
+													matriz[newx][newy].setIcon(new ImageIcon(matAux[newx][newy]+".jpg"));
+													matriz[antx][anty].setIcon(new ImageIcon(matAux[antx][anty]+".jpg"));
 													contador=0;
 													int veces=0;
 													for (int m = 0; m < 4; m++) {
@@ -205,7 +207,7 @@ public class MemoryGame {
 													for (int j5 = 0; j5 < 5; j5++) {
 														if (matAux[j4][j5]!=0&& matAux[j4][j5]!=-1) {
 															matAux[j4][j5]=0;
-															matriz[j4][j5].setIcon(new ImageIcon("imagenes/"+matAux[j4][j5]+".jpg"));
+															matriz[j4][j5].setIcon(new ImageIcon(matAux[j4][j5]+".jpg"));
 															contador=0;
 														}
 													}
@@ -295,6 +297,7 @@ public class MemoryGame {
 			}
 			System.out.println("");
 		}
-			
 	}
 }
+
+ 
