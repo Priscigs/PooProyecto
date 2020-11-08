@@ -16,7 +16,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class InfoRompe extends JFrame {
+public class InfoCyF extends JFrame {
 
 	private JPanel contentPane;
 
@@ -27,7 +27,7 @@ public class InfoRompe extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InfoRompe frame = new InfoRompe();
+					InfoCyF frame = new InfoCyF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,10 +39,10 @@ public class InfoRompe extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public InfoRompe() {
-		setTitle("Información de Rompecabezas");
+	public InfoCyF() {
+		setTitle("Información de Colores y Figuras");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(20, 400, 699, 351);
+		setBounds(800, 80, 699, 351);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(154, 205, 50));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -55,18 +55,18 @@ public class InfoRompe extends JFrame {
 		
 		MenuPrincipal mP = new MenuPrincipal();
 		
-		JTextArea txtrA = new JTextArea(mP.infoRompe());
+		JTextArea txtrA = new JTextArea(mP.infoCyF());
 		txtrA.setFont(new Font("Gill Sans MT", Font.PLAIN, 14));
 		scrollPane.setColumnHeaderView(txtrA);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(394, 95, 253, 200);
-		ImageIcon icon = new ImageIcon(getClass().getResource("perro.jpg"));
+		ImageIcon icon = new ImageIcon(getClass().getResource("Figuras.png"));
 		ImageIcon img = new ImageIcon(icon.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH));
 		lblFondo.setIcon((img));
 		contentPane.add(lblFondo);
 		
-		JLabel lblNewLabel = new JLabel("Resultado");
+		JLabel lblNewLabel = new JLabel("<html>Colores y figuras<html>");
 		lblNewLabel.setFont(new Font("Rockwell", Font.BOLD, 30));
 		lblNewLabel.setBounds(447, 10, 169, 75);
 		contentPane.add(lblNewLabel);

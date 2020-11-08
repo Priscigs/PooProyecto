@@ -1,3 +1,12 @@
+import java.awt.Font;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.GroupLayout;
+import java.awt.Color;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +23,9 @@ public class Lvl4 extends javax.swing.JFrame {
      * Creates new form Lvl4
      */
     public Lvl4() {
+    	setTitle("Nivel 4");
+    	setBounds(600, 196, 150, 196);
+    	getContentPane().setBackground(Color.WHITE);
         initComponents();
     }
 
@@ -28,31 +40,28 @@ public class Lvl4 extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton2.setBackground(new Color(176, 224, 230));
         jButton3 = new javax.swing.JButton();
+        jButton3.setBackground(new Color(176, 224, 230));
         jButton4 = new javax.swing.JButton();
+        jButton4.setBackground(new Color(176, 224, 230));
         jButton5 = new javax.swing.JButton();
+        jButton5.setBackground(new Color(176, 224, 230));
         jButton6 = new javax.swing.JButton();
+        jButton6.setBackground(new Color(176, 224, 230));
         jButton7 = new javax.swing.JButton();
+        jButton7.setBackground(new Color(176, 224, 230));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Vivian", 0, 24)); // NOI18N
+        jLabel1.setFont(new Font("Gill Sans MT Condensed", Font.BOLD, 34)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 204));
-        jLabel1.setText("4. Â¿QuÃ© colores hay en la pelota?");
+        jLabel1.setText("4. ¿Qué colores hay en la pelota?");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pelotacolores.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pelotacolores.png")));
 
-        jButton1.setFont(new java.awt.Font("Vivian", 0, 14)); // NOI18N
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setFont(new java.awt.Font("Vivian", 0, 14)); // NOI18N
+        jButton2.setFont(new Font("Dubai Light", Font.BOLD, 15)); // NOI18N
         jButton2.setText("Azul, Naranja y Rojo");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +69,7 @@ public class Lvl4 extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Vivian", 0, 14)); // NOI18N
+        jButton3.setFont(new Font("Dubai Light", Font.BOLD, 15)); // NOI18N
         jButton3.setText("Verde, Blanco y Amarillo");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +77,7 @@ public class Lvl4 extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Vivian", 0, 14)); // NOI18N
+        jButton4.setFont(new Font("Dubai Light", Font.BOLD, 15)); // NOI18N
         jButton4.setText("Celeste, Rosado y Azul");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +85,7 @@ public class Lvl4 extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Vivian", 0, 14)); // NOI18N
+        jButton5.setFont(new Font("Dubai Light", Font.BOLD, 15)); // NOI18N
         jButton5.setText("Azul, Amarillo y Rojo");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +93,7 @@ public class Lvl4 extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Vivian", 0, 14)); // NOI18N
+        jButton6.setFont(new Font("Dubai Light", Font.BOLD, 15)); // NOI18N
         jButton6.setText("Verde, Naranja y Rosa");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,67 +101,88 @@ public class Lvl4 extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setFont(new java.awt.Font("Vivian", 0, 14)); // NOI18N
+        jButton7.setFont(new Font("Dubai Light", Font.BOLD, 15)); // NOI18N
         jButton7.setText("Negro, Blanco y Gris");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
+        
+        TiempoFYC tiempo = new TiempoFYC();
+        comboBox = new JComboBox();
+        comboBox.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		String mensaje = comboBox.getSelectedItem().toString();
+
+				if (mensaje.equals("Descripcion")) {
+					InfoCyF jM = new InfoCyF();
+					jM.setVisible(true);
+				}
+
+				if (mensaje.equals("Salir")) {
+					System.exit(0);
+				}
+        	}
+        });
+        comboBox.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        comboBox.setModel(new DefaultComboBoxModel(new String[] {"Descripcion", "Salir"}));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton7)))
-                .addContainerGap(52, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton2)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addComponent(jButton3)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6))))
-                .addGap(19, 19, 19))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(97)
+        			.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 383, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(108, Short.MAX_VALUE))
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(31)
+        			.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 288, GroupLayout.PREFERRED_SIZE)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(12)
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(jButton3, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+        						.addComponent(jButton2, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+        						.addComponent(jButton4, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
+        				.addGroup(layout.createSequentialGroup()
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(jButton6, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+        						.addComponent(jButton5, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+        						.addComponent(jButton7, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))))
+        			.addGap(62))
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(547, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(24, 24, 24))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addGap(5)
+        			.addComponent(jLabel1)
+        			.addGap(20)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(34)
+        					.addComponent(jLabel2))
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(26)
+        					.addComponent(jButton2)
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addComponent(jButton3)
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addComponent(jButton4)
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addComponent(jButton5)
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addComponent(jButton6)
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addComponent(jButton7)))
+        			.addGap(111))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,6 +192,7 @@ public class Lvl4 extends javax.swing.JFrame {
     Incorreto inc = new Incorreto();
     this.setVisible(true);
     inc.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -169,6 +200,7 @@ public class Lvl4 extends javax.swing.JFrame {
     Incorreto inc = new Incorreto();
     this.setVisible(true);
     inc.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -176,6 +208,7 @@ public class Lvl4 extends javax.swing.JFrame {
     Incorreto inc = new Incorreto();
     this.setVisible(true);
     inc.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -183,6 +216,7 @@ public class Lvl4 extends javax.swing.JFrame {
     Incorreto inc = new Incorreto();
     this.setVisible(true);
     inc.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -190,6 +224,7 @@ public class Lvl4 extends javax.swing.JFrame {
     Incorreto inc = new Incorreto();
     this.setVisible(true);
     inc.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -197,22 +232,8 @@ public class Lvl4 extends javax.swing.JFrame {
     Correcto cor = new Correcto();
     Lvl5 lev5 = new Lvl5();
     lev5.setVisible(true);
-    cor.setVisible(true);
+    //cor.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    coloresyFiguras cyf = new coloresyFiguras();
-    this.setVisible(false);
-    cyf.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-   
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -221,5 +242,6 @@ public class Lvl4 extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private JComboBox comboBox;
     // End of variables declaration//GEN-END:variables
 }

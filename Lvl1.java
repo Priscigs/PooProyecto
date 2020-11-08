@@ -1,3 +1,12 @@
+import java.awt.Font;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.GroupLayout;
+import java.awt.Color;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +23,11 @@ public class Lvl1 extends javax.swing.JFrame {
      * Creates new form Lvl1
      */
     public Lvl1() {
+    	setTitle("Nivel 1");
+    	this.setResizable(false);
+    	setBounds(600, 196, 150, 196);
+    	getContentPane().setBackground(new Color(150, 196, 222));
+    	setBackground(new Color(150, 191, 216));
         initComponents();
     }
 
@@ -29,16 +43,24 @@ public class Lvl1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton2.setBackground(Color.WHITE);
         jButton3 = new javax.swing.JButton();
+        jButton3.setBackground(Color.WHITE);
         jButton4 = new javax.swing.JButton();
+        jButton4.setBackground(Color.WHITE);
         jButton5 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButton5.setBackground(Color.WHITE);
+        
+        jButton5.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Vivian", 0, 24)); // NOI18N
+        jLabel1.setFont(new Font("Gill Sans MT Condensed", Font.BOLD, 40)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 204));
-        jLabel1.setText("1. Â¿Cual es el circulo morado?");
+        jLabel1.setText("1. ¿Cual es el circulo morado?");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circulomorado.jpg"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -67,84 +89,96 @@ public class Lvl1 extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        
+        TiempoFYC tiempo = new TiempoFYC();
+        JComboBox comboBox = new JComboBox();
+        comboBox.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		String mensaje = comboBox.getSelectedItem().toString();
+        		if (mensaje.equals("Jugar")) {
+        			jButton5.setEnabled(true);
+        			jButton2.setEnabled(true);
+        			jButton3.setEnabled(true);
+        			jButton4.setEnabled(true);
+        			tiempo.setVisible(true);
+				}
 
-        jButton1.setFont(new java.awt.Font("Vivian", 0, 18)); // NOI18N
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
+				if (mensaje.equals("Descripcion")) {
+					InfoCyF jM = new InfoCyF();
+					jM.setVisible(true);
+				}
+
+				if (mensaje.equals("Salir")) {
+					System.exit(0);
+				}
+        	}
         });
+        comboBox.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        comboBox.setModel(new DefaultComboBoxModel(new String[] {"Jugar", "Descripcion", "Salir"}));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
-                .addGap(128, 128, 128))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(99)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(jButton3)
+        				.addComponent(jButton5))
+        			.addPreferredGap(ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+        			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(jLabel3)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(jButton2)
+        					.addPreferredGap(ComponentPlacement.RELATED))
+        				.addComponent(jButton4))
+        			.addGap(166))
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(720, Short.MAX_VALUE))
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(177)
+        			.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 463, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(191, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5)
-                            .addComponent(jButton2))))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addGap(5)
+        			.addComponent(jLabel1)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(jLabel3)
+        					.addGap(29))
+        				.addGroup(layout.createSequentialGroup()
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(jButton2)
+        						.addComponent(jButton5))
+        					.addPreferredGap(ComponentPlacement.UNRELATED)))
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(jButton3)
+        				.addComponent(jButton4))
+        			.addContainerGap(53, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    coloresyFiguras cyf = new coloresyFiguras();
-    this.setVisible(false);
-    cyf.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
     this.setVisible(false);
     Incorreto inc = new Incorreto();
     inc.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     this.setVisible(false);
     Incorreto inc = new Incorreto();
     inc.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -152,6 +186,7 @@ public class Lvl1 extends javax.swing.JFrame {
     Incorreto inc = new Incorreto();
     this.setVisible(true);
     inc.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -159,21 +194,12 @@ public class Lvl1 extends javax.swing.JFrame {
     Correcto cor = new Correcto();
     Lvl2 lev2 = new Lvl2();
     lev2.setVisible(true);
-    cor.setVisible(true);
+    //cor.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-   
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    // End of variables declaration//GEN-END:variables
 }

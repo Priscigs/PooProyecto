@@ -1,3 +1,7 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +18,8 @@ public class coloresyFiguras extends javax.swing.JFrame {
      * Creates new form coloresyFiguras
      */
     public coloresyFiguras() {
+    	setTitle("Colores y Figuras");
+    	getContentPane().setBackground(Color.WHITE);
         initComponents();
     }
 
@@ -29,15 +35,22 @@ public class coloresyFiguras extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton2.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		Juegos j = new Juegos();
+                j.setVisible(true);
+                dispose();
+        	}
+        });
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Vivian", 0, 24)); // NOI18N
+        jLabel1.setFont(new Font("Forte", Font.BOLD, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 204));
         jLabel1.setText("Colores y Figuras");
 
-        jButton1.setFont(new java.awt.Font("Vivian", 0, 14)); // NOI18N
+        jButton1.setFont(new Font("Kristen ITC", Font.BOLD, 18)); // NOI18N
         jButton1.setText("Iniciar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,8 +58,8 @@ public class coloresyFiguras extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Vivian", 0, 14)); // NOI18N
-        jButton2.setText("Atras");
+        jButton2.setFont(new Font("Kristen ITC", Font.BOLD, 18)); // NOI18N
+        jButton2.setText("Atr\u00E1s");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figuras.png"))); // NOI18N
 
@@ -88,7 +101,7 @@ public class coloresyFiguras extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     Lvl1 lev1 = new Lvl1();
-    this.setVisibe(false);
+    this.setVisible(false);
     lev1.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -138,3 +151,4 @@ public class coloresyFiguras extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
+
