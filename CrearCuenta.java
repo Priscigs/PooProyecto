@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class CrearCuenta extends JFrame {
 
@@ -24,6 +25,7 @@ public class CrearCuenta extends JFrame {
 	private JTextField txtNombre;
 	private JPasswordField passwordField_1;
 	private JTextField txtCorreo;
+	private JTextField txtNino;
 
 	/**
 	 * Launch the application.
@@ -47,69 +49,76 @@ public class CrearCuenta extends JFrame {
 	public CrearCuenta() {
 		setTitle("Crear Cuenta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 442, 414);
+		setBounds(100, 100, 442, 544);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Usuario");
-		lblNewLabel.setFont(new Font("Leelawadee", Font.BOLD, 14));
-		lblNewLabel.setBounds(95, 58, 62, 28);
+		lblNewLabel.setFont(new Font("Eras Bold ITC", Font.BOLD, 18));
+		lblNewLabel.setBounds(73, 55, 132, 28);
 		contentPane.add(lblNewLabel);
 
 		txtUser = new JTextField();
-		txtUser.setFont(new Font("Leelawadee", Font.BOLD, 14));
+		txtUser.setFont(new Font("Dialog", Font.BOLD, 15));
 		txtUser.setBounds(247, 64, 96, 19);
 		contentPane.add(txtUser);
 		txtUser.setColumns(10);
 
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setFont(new Font("Leelawadee", Font.BOLD, 14));
-		lblContrasea.setBounds(95, 108, 77, 19);
+		lblContrasea.setFont(new Font("Eras Bold ITC", Font.BOLD, 18));
+		lblContrasea.setBounds(73, 105, 132, 19);
 		contentPane.add(lblContrasea);
 
 		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("Leelawadee", Font.BOLD, 14));
+		passwordField.setFont(new Font("Dialog", Font.BOLD, 15));
 		passwordField.setBounds(247, 109, 96, 19);
 		contentPane.add(passwordField);
 
-		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setFont(new Font("Leelawadee", Font.BOLD, 14));
-		lblNombre.setBounds(95, 221, 77, 19);
+		JLabel lblNombre = new JLabel("<html>Nombre Encargado<html>");
+		lblNombre.setFont(new Font("Eras Bold ITC", Font.BOLD, 18));
+		lblNombre.setBounds(73, 220, 132, 46);
 		contentPane.add(lblNombre);
 
 		txtNombre = new JTextField();
-		txtNombre.setFont(new Font("Leelawadee", Font.BOLD, 14));
+		txtNombre.setFont(new Font("Dialog", Font.BOLD, 15));
 		txtNombre.setColumns(10);
 		txtNombre.setBounds(247, 222, 96, 19);
 		contentPane.add(txtNombre);
 
 		JLabel lblConfirmarContrasea = new JLabel("<html>Confirmar Contrase\u00F1a<html>");
-		lblConfirmarContrasea.setFont(new Font("Leelawadee", Font.BOLD, 14));
-		lblConfirmarContrasea.setBounds(95, 155, 96, 36);
+		lblConfirmarContrasea.setFont(new Font("Eras Bold ITC", Font.BOLD, 18));
+		lblConfirmarContrasea.setBounds(73, 152, 132, 43);
 		contentPane.add(lblConfirmarContrasea);
 
 		passwordField_1 = new JPasswordField();
-		passwordField_1.setFont(new Font("Leelawadee", Font.BOLD, 14));
+		passwordField_1.setFont(new Font("Dialog", Font.BOLD, 15));
 		passwordField_1.setBounds(247, 156, 96, 19);
 		contentPane.add(passwordField_1);
 
 		JLabel lblCorreo = new JLabel("Correo");
-		lblCorreo.setFont(new Font("Leelawadee", Font.BOLD, 14));
-		lblCorreo.setBounds(95, 264, 77, 28);
+		lblCorreo.setFont(new Font("Eras Bold ITC", Font.BOLD, 18));
+		lblCorreo.setBounds(73, 291, 132, 28);
 		contentPane.add(lblCorreo);
 
 		txtCorreo = new JTextField();
-		txtCorreo.setFont(new Font("Leelawadee", Font.BOLD, 14));
+		txtCorreo.setFont(new Font("Dialog", Font.BOLD, 15));
 		txtCorreo.setColumns(10);
-		txtCorreo.setBounds(247, 270, 96, 19);
+		txtCorreo.setBounds(247, 295, 96, 19);
 		contentPane.add(txtCorreo);
+		
+		txtNino = new JTextField();
+		txtNino.setFont(new Font("Dialog", Font.BOLD, 15));
+		txtNino.setColumns(10);
+		txtNino.setBounds(247, 344, 96, 19);
+		contentPane.add(txtNino);
 		
 		InicioSesion iS = new InicioSesion();
 
 		JButton btnRegistrar = new JButton("Registrar");
-		btnRegistrar.setFont(new Font("Leelawadee", Font.BOLD, 14));
+		btnRegistrar.setBackground(new Color(153, 204, 255));
+		btnRegistrar.setFont(new Font("Kristen ITC", Font.BOLD, 18));
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -123,7 +132,8 @@ public class CrearCuenta extends JFrame {
 
 				//Verificar que se llenen todos los datos
 				if (txtUser.getText().equals("") || contra.equals("") || contraCon.equals("")
-						|| txtNombre.getText().equals("") || txtCorreo.getText().equals("")) {
+						|| txtNombre.getText().equals("") || txtCorreo.getText().equals("") || 
+						txtNino.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos");
 				} else {
 					
@@ -137,6 +147,7 @@ public class CrearCuenta extends JFrame {
 							u.setPassword(contra);
 							u.setNombre(txtNombre.getText());
 							u.setCorreo(txtCorreo.getText());
+							u.setNombreN(txtNino.getText());
 							
 							//Creación de la cuenta del usuario
 							if (sqlU.register(u)) {
@@ -162,14 +173,21 @@ public class CrearCuenta extends JFrame {
 				passwordField_1.setText(null);
 				txtNombre.setText(null);
 				txtCorreo.setText(null);
+				txtNino.setText(null);
 			}
 		});
-		btnRegistrar.setBounds(162, 302, 103, 43);
+		btnRegistrar.setBounds(134, 412, 138, 43);
 		contentPane.add(btnRegistrar);
 		
+		JLabel lblnombreDelNioa = new JLabel("<html>Nombre del ni\u00F1o/a<html>");
+		lblnombreDelNioa.setFont(new Font("Eras Bold ITC", Font.BOLD, 18));
+		lblnombreDelNioa.setBounds(73, 343, 121, 45);
+		contentPane.add(lblnombreDelNioa);
+		
 		JLabel lblFondo = new JLabel("");
-		lblFondo.setBounds(0, 0, 436, 377);
-		ImageIcon icon = new ImageIcon(getClass().getResource("crearcion.jpg"));
+		lblFondo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblFondo.setBounds(0, 0, 436, 507);
+		ImageIcon icon = new ImageIcon(getClass().getResource("fondoCarro.jpg"));
 		ImageIcon img = new ImageIcon(icon.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH));
 		lblFondo.setIcon((img));
 		contentPane.add(lblFondo);

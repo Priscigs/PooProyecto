@@ -12,6 +12,9 @@ public class Usuarios {
 	private String nombre;
 	private String correo;
 	private String sesion;
+	private String inicioT;
+	private String finT;
+	private String nombreN;
 	
 	/** method getId
 	*@param ninguno
@@ -107,5 +110,53 @@ public class Usuarios {
 	*/	
 	public void setSesion(String sesion) {
 		this.sesion = sesion;
+	}
+	
+	/** method getInicioT
+	*@param ninguno
+	*@return String
+	*/
+	public String getInicioT() {
+		return inicioT;
+	}
+	
+	/** method setSesion
+	*@param inicioT
+	*@return ninguno
+	*/	
+	public void setInicioT(String inicioT) {
+		this.inicioT = inicioT;
+	}
+	
+	/** method getFinT
+	*@param ninguno
+	*@return String
+	*/
+	public String getFinT() {
+		return finT;
+	}
+	
+	/** method setFinT
+	*@param finT
+	*@return ninguno
+	*/	
+	public void setFinT(String finT) {
+		this.finT = finT;
+	}
+	
+	/** method getNombreN
+	*@param ninguno
+	*@return String
+	*/
+	public String getNombreN() {
+		return nombreN;
+	}
+	
+	/** method setNombreN
+	*@param nombreN
+	*@return ninguno
+	*/	
+	public void setNombreN(String nombreN) {
+		this.nombreN = nombreN;
 	}
 }

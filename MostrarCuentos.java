@@ -20,6 +20,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import java.awt.SystemColor;
 
 public class MostrarCuentos extends JFrame {
 
@@ -46,7 +47,7 @@ public class MostrarCuentos extends JFrame {
 	 */
 	public MostrarCuentos() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 533, 450);
+		setBounds(100, 100, 404, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,43 +56,46 @@ public class MostrarCuentos extends JFrame {
 		Pinocho p = new Pinocho();
 		
 		JButton btnNewButton = new JButton("Pinocho");
+		btnNewButton.setBackground(new Color(230, 230, 250));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				p.setVisible(true);
 			}
 		});
-		btnNewButton.setFont(new Font("Leelawadee", Font.BOLD, 14));
-		btnNewButton.setBounds(192, 108, 137, 60);
+		btnNewButton.setFont(new Font("Kristen ITC", Font.BOLD, 18));
+		btnNewButton.setBounds(118, 105, 162, 60);
 		contentPane.add(btnNewButton);
 		
 		LiebreTortuga lT = new LiebreTortuga();
 		
 		JButton btnlaLiebreY = new JButton("<html>La Liebre y la Tortuga<html>");
+		btnlaLiebreY.setBackground(new Color(230, 230, 250));
 		btnlaLiebreY.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lT.setVisible(true);
 			}
 		});
-		btnlaLiebreY.setFont(new Font("Leelawadee", Font.BOLD, 14));
-		btnlaLiebreY.setBounds(192, 177, 137, 60);
+		btnlaLiebreY.setFont(new Font("Kristen ITC", Font.BOLD, 18));
+		btnlaLiebreY.setBounds(118, 174, 162, 60);
 		contentPane.add(btnlaLiebreY);
 		
 		Patito pa = new Patito();
 		
 		JButton btnelPatitoFeo = new JButton("<html>El Patito Feo<html>");
+		btnelPatitoFeo.setBackground(new Color(230, 230, 250));
 		btnelPatitoFeo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pa.setVisible(true);
 			}
 		});
-		btnelPatitoFeo.setFont(new Font("Leelawadee", Font.BOLD, 14));
-		btnelPatitoFeo.setBounds(192, 247, 137, 60);
+		btnelPatitoFeo.setFont(new Font("Kristen ITC", Font.BOLD, 18));
+		btnelPatitoFeo.setBounds(118, 244, 162, 60);
 		contentPane.add(btnelPatitoFeo);
 		
 		JLabel lblNewLabel = new JLabel("Cuentos");
-		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Rockwell", Font.BOLD, 40));
-		lblNewLabel.setBounds(177, 28, 207, 57);
+		lblNewLabel.setBounds(118, 24, 207, 57);
 		contentPane.add(lblNewLabel);
 		
 		JComboBox comboBox = new JComboBox();
@@ -118,19 +122,20 @@ public class MostrarCuentos extends JFrame {
 		Cerditos cer = new Cerditos();
 		
 		JButton btnLosTresCerditos = new JButton("Tres Cerditos");
+		btnLosTresCerditos.setBackground(new Color(230, 230, 250));
 		btnLosTresCerditos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cer.setVisible(true);
 				dispose();
 			}
 		});
-		btnLosTresCerditos.setFont(new Font("Leelawadee", Font.BOLD, 14));
-		btnLosTresCerditos.setBounds(192, 317, 137, 60);
+		btnLosTresCerditos.setFont(new Font("Kristen ITC", Font.BOLD, 18));
+		btnLosTresCerditos.setBounds(118, 314, 162, 60);
 		contentPane.add(btnLosTresCerditos);
 		
 		JLabel lblFondo = new JLabel("");
-		lblFondo.setBounds(0, 0, 519, 419);
-		ImageIcon icon = new ImageIcon(getClass().getResource("cuentos.jpg"));
+		lblFondo.setBounds(0, 0, 390, 419);
+		ImageIcon icon = new ImageIcon(getClass().getResource("ninios.jpg"));
 		ImageIcon img = new ImageIcon(icon.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH));
 		lblFondo.setIcon((img));
 		contentPane.add(lblFondo);

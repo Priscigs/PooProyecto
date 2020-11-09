@@ -5,6 +5,9 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  * Clase SQLUsuarios
  *
@@ -23,7 +26,7 @@ public class SQLUsuarios extends Conexion {
 		PreparedStatement preS = null;
 		Connection conexion = conectar();
 
-		String sql = "INSERT INTO usuarios (usuario, clave, nombre, correo) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO usuarios (usuario, clave, nombre, correo, nombreN) VALUES (?,?,?,?,?)";
 
 		try {
 			preS = conexion.prepareStatement(sql);
@@ -31,6 +34,7 @@ public class SQLUsuarios extends Conexion {
 			preS.setString(2, user.getPassword());
 			preS.setString(3, user.getNombre());
 			preS.setString(4, user.getCorreo());
+			preS.setString(5, user.getNombreN());
 			preS.execute();
 			return true;
 
@@ -112,5 +116,75 @@ public class SQLUsuarios extends Conexion {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	public boolean cronoInicio(Usuarios user) {
+		PreparedStatement preS = null;
+		ResultSet resS = null;
+		Connection conexion = conectar();
+
+		String sql = "SELECT idusuarios FROM usuarios WHERE usuario = ?";
+
+		try {
+			preS = conexion.prepareStatement(sql);
+			preS.setInt(1, user.getId());
+			resS = preS.executeQuery();
+
+			if (resS.next()) {
+				//Mostrará la fecha y hora en la que inició sesión el usuario
+				String nuevoSql = "UPDATE usuarios SET inicioT = ? WHERE idusuarios = ?";
+				
+				preS = conexion.prepareStatement(nuevoSql);
+				preS.setString(1, user.getInicioT());
+				preS.setInt(2, resS.getInt(1));
+				preS.execute(); 
+				
+				//user.setId(resS.getInt(1));
+				//user.setNombre(resS.getString(2));
+				return true;
+			}
+			return false;
+
+		} catch (SQLException e) {
+			Logger.getLogger(SQLUsuarios.class.getName()).log(Level.SEVERE, null, e);
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+	
+	public boolean cronoFin(Usuarios user) {
+		PreparedStatement preS = null;
+		ResultSet resS = null;
+		Connection conexion = conectar();
+
+		String sql = "SELECT idusuarios FROM usuarios WHERE usuario = ?";
+
+		try {
+			preS = conexion.prepareStatement(sql);
+			preS.setInt(1, user.getId());
+			resS = preS.executeQuery();
+
+			if (resS.next()) {
+				//Mostrará la fecha y hora en la que inició sesión el usuario
+				String nuevoSql = "UPDATE usuarios SET finT = ? WHERE idusuarios = ?";
+				
+				preS = conexion.prepareStatement(nuevoSql);
+				preS.setString(1, user.getFinT());
+				preS.setInt(2, resS.getInt(1));
+				preS.execute(); 
+				
+				//user.setId(resS.getInt(1));
+				//user.setNombre(resS.getString(2));
+				return true;
+			}
+			return false;
+
+		} catch (SQLException e) {
+			Logger.getLogger(SQLUsuarios.class.getName()).log(Level.SEVERE, null, e);
+			e.printStackTrace();
+			return false;
+		}
+
 	}
 }
