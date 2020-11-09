@@ -39,7 +39,7 @@ public class LiebreTortuga extends JFrame {
 	 * Create the frame.
 	 */
 	public LiebreTortuga() {
-		setTitle("La Liebre y la Tortuga");
+		setTitle("Cuentos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1138, 655);
 		contentPane = new JPanel();
@@ -50,7 +50,7 @@ public class LiebreTortuga extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("La Liebre y la Tortuga");
-		lblNewLabel.setFont(new Font("Rockwell", Font.ITALIC, 80));
+		lblNewLabel.setFont(new Font("Forte", Font.ITALIC, 80));
 		lblNewLabel.setBounds(10, 24, 894, 103);
 		contentPane.add(lblNewLabel);
 		
@@ -61,7 +61,8 @@ public class LiebreTortuga extends JFrame {
 		Cuentos lT = new Cuentos();
 		
 		JTextArea textArea = new JTextArea(lT.cuento2());
-		textArea.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 14));
+		textArea.setForeground(new Color(255, 140, 0));
+		textArea.setFont(new Font("Eras Bold ITC", Font.PLAIN, 14));
 		scrollPane.setViewportView(textArea);
 		
 		JLabel lblFondo = new JLabel("");
@@ -72,6 +73,7 @@ public class LiebreTortuga extends JFrame {
 		contentPane.add(lblFondo);
 		
 		JButton btnNewButton = new JButton("Regresar al Men\u00FA de Cuentos");
+		btnNewButton.setBackground(new Color(154, 205, 50));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MostrarCuentos mC = new MostrarCuentos();
@@ -79,7 +81,7 @@ public class LiebreTortuga extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setFont(new Font("Leelawadee", Font.BOLD, 18));
+		btnNewButton.setFont(new Font("Kristen ITC", Font.BOLD, 18));
 		btnNewButton.setBounds(10, 560, 309, 48);
 		contentPane.add(btnNewButton);
 	}

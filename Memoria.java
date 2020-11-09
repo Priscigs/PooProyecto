@@ -33,7 +33,7 @@ public class Memoria{
 	Random aleatorio;
 	Timer tiempo, tiempoE1;
 	JLabel cronometro;
-	int min, seg, contador, contadorS, x1, x2, num1, antx, anty, num2, newx, newy;
+	int hora, min, seg, contador, contadorS, x1, x2, num1, antx, anty, num2, newx, newy;
 
 	public Memoria() {
 		// ventana Principal
@@ -115,17 +115,23 @@ public class Memoria{
 
 		}
 		// Tiempo de juego
+		hora = 0;
 		min = 0;
 		seg = 0;
 		tiempo = new Timer(1000, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				seg++;
-				if (seg == 60) {
-					min++;
+				++seg;
+				if(seg == 60) {
 					seg = 0;
+					min++;
+					if (min == 60) {
+						hora++;
+						min = 0;
+					}
 				}
-				cronometro.setText("Tiempo: " + min + ":" + seg);
+				cronometro.setText("Tiempo: " + (hora<=9?"0":"") + hora + ":" + (min<=9?"0":"") + min + ":" + (seg<=9?"0":"") + seg);
+				
 			}
 		});
 		// Tiempo de espera
@@ -193,8 +199,12 @@ public class Memoria{
 														}
 														if (veces == 20) {
 															tiempo.stop();
+															/*Win w = new Win();
+															w.setVisible(true);*/
 															JOptionPane.showMessageDialog(ventana,
-																	"Felecidades Ganaste, Tiempo: " + min + ":" + seg);
+																	"Felicidades Ganaste, Tiempo: " + (hora<=9?"0":"") + hora + ":" + (min<=9?"0":"") + min + ":" + (seg<=9?"0":"") + seg);
+															JuegosMenu jM = new JuegosMenu();
+															jM.setVisible(true);
 														}
 													}
 													for (int j4 = 0; j4 < 4; j4++) {

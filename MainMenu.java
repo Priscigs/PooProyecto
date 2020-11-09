@@ -45,7 +45,7 @@ public class MainMenu extends JFrame {
 		CrearCuenta cC = new CrearCuenta();
 		
 		JButton btnCrear = new JButton("Crear Cuenta");
-		btnCrear.setBackground(new Color(230, 230, 250));
+		btnCrear.setBackground(new Color(143, 188, 143));
 		btnCrear.setFont(new Font("Kristen ITC", Font.BOLD, 18));
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -53,13 +53,13 @@ public class MainMenu extends JFrame {
 				dispose();
 			}
 		});
-		btnCrear.setBounds(106, 77, 172, 35);
+		btnCrear.setBounds(105, 89, 172, 35);
 		contentPane.add(btnCrear);
 		
 		InicioSesion iS = new InicioSesion();
 		
 		JButton btnIniciarSesin = new JButton("Iniciar Sesi\u00F3n");
-		btnIniciarSesin.setBackground(new Color(230, 230, 250));
+		btnIniciarSesin.setBackground(new Color(143, 188, 143));
 		btnIniciarSesin.setFont(new Font("Kristen ITC", Font.BOLD, 18));
 		btnIniciarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -67,13 +67,13 @@ public class MainMenu extends JFrame {
 				dispose();
 			}
 		});
-		btnIniciarSesin.setBounds(106, 122, 172, 35);
+		btnIniciarSesin.setBounds(105, 134, 172, 35);
 		contentPane.add(btnIniciarSesin);
 		
 		Descripcion d = new Descripcion();
 		
 		JButton btnDescripcin = new JButton("Descripci\u00F3n");
-		btnDescripcin.setBackground(new Color(230, 230, 250));
+		btnDescripcin.setBackground(new Color(143, 188, 143));
 		btnDescripcin.setFont(new Font("Kristen ITC", Font.BOLD, 18));
 		btnDescripcin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,23 +81,23 @@ public class MainMenu extends JFrame {
 				dispose();
 			}
 		});
-		btnDescripcin.setBounds(106, 167, 172, 35);
+		btnDescripcin.setBounds(105, 179, 172, 35);
 		contentPane.add(btnDescripcin);
 		
 		JButton btnSalir = new JButton("Salir");
-		btnSalir.setBackground(new Color(230, 230, 250));
+		btnSalir.setBackground(new Color(143, 188, 143));
 		btnSalir.setFont(new Font("Kristen ITC", Font.BOLD, 18));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		btnSalir.setBounds(106, 212, 172, 35);
+		btnSalir.setBounds(105, 224, 172, 35);
 		contentPane.add(btnSalir);
 		
-		JLabel lblNewLabel = new JLabel("BIENVENIDOS A PEQUEGAMES");
-		lblNewLabel.setFont(new Font("Rockwell", Font.BOLD, 22));
-		lblNewLabel.setBounds(10, 10, 388, 57);
+		JLabel lblNewLabel = new JLabel("<html>BIENVENIDOS PEQUEGAMES<html>");
+		lblNewLabel.setFont(new Font("Rockwell", Font.BOLD, 26));
+		lblNewLabel.setBounds(96, 10, 313, 80);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblFondo = new JLabel("");

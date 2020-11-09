@@ -39,7 +39,7 @@ public class Patito extends JFrame {
 	 * Create the frame.
 	 */
 	public Patito() {
-		setTitle("Patito Feo");
+		setTitle("Cuentos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1144, 681);
 		contentPane = new JPanel();
@@ -49,7 +49,7 @@ public class Patito extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("El Patito Feo");
-		lblNewLabel.setFont(new Font("Rockwell", Font.ITALIC, 80));
+		lblNewLabel.setFont(new Font("Forte", Font.ITALIC, 80));
 		lblNewLabel.setBounds(10, 24, 894, 103);
 		contentPane.add(lblNewLabel);
 		
@@ -60,7 +60,8 @@ public class Patito extends JFrame {
 		Cuentos pF = new Cuentos();
 		
 		JTextArea textArea = new JTextArea(pF.cuento3());
-		textArea.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 14));
+		textArea.setForeground(new Color(0, 0, 139));
+		textArea.setFont(new Font("Eras Bold ITC", Font.PLAIN, 14));
 		scrollPane.setViewportView(textArea);
 		
 		JLabel lblFondo = new JLabel("");
@@ -78,6 +79,7 @@ public class Patito extends JFrame {
 		contentPane.add(lblFondo1);
 		
 		JButton btnNewButton = new JButton("Regresar al Men\u00FA de Cuentos");
+		btnNewButton.setBackground(new Color(154, 205, 50));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MostrarCuentos mC = new MostrarCuentos();
@@ -85,7 +87,7 @@ public class Patito extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setFont(new Font("Leelawadee", Font.BOLD, 18));
+		btnNewButton.setFont(new Font("Kristen ITC", Font.BOLD, 18));
 		btnNewButton.setBounds(815, 574, 309, 48);
 		contentPane.add(btnNewButton);
 	}

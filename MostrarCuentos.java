@@ -56,10 +56,11 @@ public class MostrarCuentos extends JFrame {
 		Pinocho p = new Pinocho();
 		
 		JButton btnNewButton = new JButton("Pinocho");
-		btnNewButton.setBackground(new Color(230, 230, 250));
+		btnNewButton.setBackground(new Color(188, 143, 143));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				p.setVisible(true);
+				dispose();
 			}
 		});
 		btnNewButton.setFont(new Font("Kristen ITC", Font.BOLD, 18));
@@ -69,10 +70,11 @@ public class MostrarCuentos extends JFrame {
 		LiebreTortuga lT = new LiebreTortuga();
 		
 		JButton btnlaLiebreY = new JButton("<html>La Liebre y la Tortuga<html>");
-		btnlaLiebreY.setBackground(new Color(230, 230, 250));
+		btnlaLiebreY.setBackground(new Color(188, 143, 143));
 		btnlaLiebreY.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lT.setVisible(true);
+				dispose();
 			}
 		});
 		btnlaLiebreY.setFont(new Font("Kristen ITC", Font.BOLD, 18));
@@ -82,10 +84,11 @@ public class MostrarCuentos extends JFrame {
 		Patito pa = new Patito();
 		
 		JButton btnelPatitoFeo = new JButton("<html>El Patito Feo<html>");
-		btnelPatitoFeo.setBackground(new Color(230, 230, 250));
+		btnelPatitoFeo.setBackground(new Color(188, 143, 143));
 		btnelPatitoFeo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pa.setVisible(true);
+				dispose();
 			}
 		});
 		btnelPatitoFeo.setFont(new Font("Kristen ITC", Font.BOLD, 18));
@@ -99,6 +102,7 @@ public class MostrarCuentos extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setBackground(new Color(216, 191, 216));
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String mensaje = comboBox.getSelectedItem().toString();
@@ -122,7 +126,7 @@ public class MostrarCuentos extends JFrame {
 		Cerditos cer = new Cerditos();
 		
 		JButton btnLosTresCerditos = new JButton("Tres Cerditos");
-		btnLosTresCerditos.setBackground(new Color(230, 230, 250));
+		btnLosTresCerditos.setBackground(new Color(188, 143, 143));
 		btnLosTresCerditos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cer.setVisible(true);
