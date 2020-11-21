@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 public class Estadisticas extends JFrame {
 
 	private JPanel contentPane;
+	Estadistica est = new Estadistica();
 
 	/**
 	 * Launch the application.
@@ -84,17 +85,27 @@ public class Estadisticas extends JFrame {
 		lblRendimiento.setBounds(405, 89, 160, 40);
 		contentPane.add(lblRendimiento);
 		
-		JButton btnNewButton = new JButton("Regresar a Men\u00FA de Juegos");
+		JLabel lblJuego_1 = new JLabel("Mateo");
+		lblJuego_1.setFont(new Font("Eras Bold ITC", Font.BOLD, 18));
+		lblJuego_1.setBounds(257, 7, 120, 40);
+		contentPane.add(lblJuego_1);
+		
+		JButton btnNewButton = new JButton("Regresar a Men\u00FA");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Juegos j = new Juegos();
+				JuegosMenu j = new JuegosMenu();
 				j.setVisible(true);
 				dispose();
 			}
 		});
 		btnNewButton.setFont(new Font("Kristen ITC", Font.BOLD, 18));
-		btnNewButton.setBounds(32, 417, 307, 40);
+		btnNewButton.setBounds(32, 417, 230, 40);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblJuego_1_1 = new JLabel(est.getInicio());
+		lblJuego_1_1.setFont(new Font("Eras Bold ITC", Font.BOLD, 18));
+		lblJuego_1_1.setBounds(257, 139, 120, 40);
+		contentPane.add(lblJuego_1_1);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBounds(-32, 0, 645, 477);

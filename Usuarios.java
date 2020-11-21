@@ -15,6 +15,8 @@ public class Usuarios {
 	private String inicioT;
 	private String finT;
 	private String nombreN;
+	private String inicioTRompe;
+	private String inicioTMemo;
 	
 	/** method getId
 	*@param ninguno
@@ -158,5 +160,37 @@ public class Usuarios {
 	*/	
 	public void setNombreN(String nombreN) {
 		this.nombreN = nombreN;
+	}
+	
+	/** method getInicioTRompe
+	*@param ninguno
+	*@return String
+	*/
+	public String getInicioTRompe() {
+		return inicioTRompe;
+	}
+	
+	/** method setInicioTRompe
+	*@param inicioTRompe
+	*@return ninguno
+	*/	
+	public void setInicioTRompe(String inicioTRompe) {
+		this.inicioTRompe = inicioTRompe;
+	}
+	
+	/** method getInicioTMemo
+	*@param ninguno
+	*@return String
+	*/
+	public String getInicioTMemo() {
+		return inicioTMemo;
+	}
+	
+	/** method setInicioTMemo
+	*@param inicioTMemo
+	*@return ninguno
+	*/	
+	public void setInicioTMemo(String inicioTMemo) {
+		this.inicioTMemo = inicioTMemo;
 	}
 }

@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -19,6 +22,10 @@ import java.awt.Font;
 //Javier Aguilar 
 public class Memoria{
 
+	//Instanciar usuarios y sqlusuarios
+	SQLUsuarios sqlU = new SQLUsuarios();
+	Usuarios u = new Usuarios();
+	Estadistica est = new Estadistica();
 	JFrame ventana;
 	JPanel panelP;
 	JLabel fondoP;
@@ -203,6 +210,8 @@ public class Memoria{
 															w.setVisible(true);*/
 															JOptionPane.showMessageDialog(ventana,
 																	"Felicidades Ganaste, Tiempo: " + (hora<=9?"0":"") + hora + ":" + (min<=9?"0":"") + min + ":" + (seg<=9?"0":"") + seg);
+															String time = (hora<=9?"0":"") + hora + ":" + (min<=9?"0":"") + min + ":" + (seg<=9?"0":"") + seg;
+															//System.out.print(est.setInicio(time)); 
 															JuegosMenu jM = new JuegosMenu();
 															jM.setVisible(true);
 														}
@@ -241,11 +250,29 @@ public class Memoria{
 
 		botonJugar.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				// System.out.print("se presiono");
+				System.out.print("se presiono");
+				
+				// Instanciar fecha
+				Date fecha = new Date();
+				DateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				
 
 				usuario = JOptionPane.showInputDialog(ventana, "Nombre del Jugador", "Escribe aqui...");
 				while (usuario == null || usuario.compareTo("Escribe aqui...") == 0 || usuario.compareTo("") == 0) {
 					usuario = JOptionPane.showInputDialog(ventana, "Debe ingresar usuario", "Escriba aqui..");
+				}
+				
+				//Verificación de todos los campos
+				if(!usuario.equals("")) {
+					u.setNombreN(usuario);
+					u.setInicioTMemo(formato.format(fecha));
+					System.out.println(formato.toString());
+					sqlU.cronoInicioMemo(u);
+					//Se abre la nueva pestaña en caso que sea correcto el login
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Llenar los campos por favor");
+
 				}
 				nombreJ.setText("Jugador: " + usuario);
 				tiempo.start();

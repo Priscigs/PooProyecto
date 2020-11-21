@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
@@ -24,6 +25,8 @@ import java.awt.Font;
 public class Rompecabezas extends JFrame {
 
 	private JPanel contentPane;
+	String usuario;
+	JFrame ventana;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -147,21 +150,39 @@ public class Rompecabezas extends JFrame {
 				String mensaje = comboBox.getSelectedItem().toString();
 				
 				if (mensaje.equals("Jugar")) {
-					Sonido sound = new Sonido();
-					sound.ReproducirSonido("src/008699998_prev.wav");
 					
-					//Instanciar fecha
+					// Instanciar fecha
 					Date fecha = new Date();
 					DateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					
-					//Instancias usuarios y sqlusuarios
+					//Instanciar usuarios y sqlusuarios
 					SQLUsuarios sqlU = new SQLUsuarios();
 					Usuarios u = new Usuarios();
 					
-					u.setInicioT(formato.format(fecha));
+					usuario = JOptionPane.showInputDialog(ventana, "Nombre del Jugador", "Escribe aqui...");
+					while (usuario == null || usuario.compareTo("Escribe aqui...") == 0 || usuario.compareTo("") == 0) {
+						usuario = JOptionPane.showInputDialog(ventana, "Debe ingresar usuario", "Escriba aqui..");
+					}
 					
-					if(sqlU.cronoInicio(u)) {
-						tiempo.setVisible(true);
+					//Verificación de todos los campos
+					if(!usuario.equals("")) {
+						u.setNombreN(usuario);
+						u.setInicioTRompe(formato.format(fecha));
+						System.out.println(formato.toString());
+						
+						//Se abre la nueva pestaña en caso que sea correcto el login
+						if (sqlU.cronoInicioRompe(u)) {
+							tiempo.setVisible(true);
+							Sonido sound = new Sonido();
+							sound.ReproducirSonido("src/008699998_prev.wav");
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Datos incorrectos, intente de nuevo");
+						}
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Llenar los campos por favor");
+
 					}
 					
 					B1.setVisible(true);

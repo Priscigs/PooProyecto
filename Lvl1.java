@@ -4,6 +4,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.GroupLayout;
 import java.awt.Color;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -24,8 +26,9 @@ import java.awt.event.MouseEvent;
  */
 @SuppressWarnings("deprecation")
 public class Lvl1 extends javax.swing.JFrame {
-
-	public Lvl1() {
+	String usuario;
+	JFrame ventana;
+	public Lvl1(Usuarios u, SQLUsuarios sqlU) {
 		setTitle("Nivel 1");
 		this.setResizable(false);
 		setBounds(600, 196, 150, 196);
@@ -109,15 +112,33 @@ public class Lvl1 extends javax.swing.JFrame {
 					// Instanciar fecha
 					Date fecha = new Date();
 					DateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-					// Instancias usuarios y sqlusuarios
+					
+					//Instanciar usuarios y sqlusuarios
 					SQLUsuarios sqlU = new SQLUsuarios();
 					Usuarios u = new Usuarios();
+					
+					usuario = JOptionPane.showInputDialog(ventana, "Nombre del Jugador", "Escribe aqui...");
+					while (usuario == null || usuario.compareTo("Escribe aqui...") == 0 || usuario.compareTo("") == 0) {
+						usuario = JOptionPane.showInputDialog(ventana, "Debe ingresar usuario", "Escriba aqui..");
+					}
+					
+					//Verificación de todos los campos
+					if(!usuario.equals("")) {
+						u.setNombreN(usuario);
+						u.setInicioT(formato.format(fecha));
+						System.out.println(formato.toString());
+						
+						//Se abre la nueva pestaña en caso que sea correcto el login
+						if (sqlU.cronoInicioColores(u)) {
+							tiempo.setVisible(true);
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Datos incorrectos, intente de nuevo");
+						}
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Llenar los campos por favor");
 
-					u.setInicioT(formato.format(fecha));
-
-					if (sqlU.cronoInicio(u)) {
-						tiempo.setVisible(true);
 					}
 
 					jButton5.setEnabled(true);
